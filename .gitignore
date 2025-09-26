@@ -361,3 +361,5 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+/Learn wxWidgets
+/bin-int/Debug-windows-x86_64/ShoppingList
