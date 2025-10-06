@@ -2,24 +2,30 @@
 #include <wx/wx.h>
 
 #include <vector>
+#include <unordered_map>
 
 #include "ListElement.h"
+
+class ListManager;
 
 class List : public wxPanel
 {
 public:
-	List(wxWindow* mainFrame, wxString title);
+	List(wxPanel* listManager, wxString title);
 	
-	void addElement(ListElement* element);
-	void moveElement(int from, int to);
-	wxWindow* getMainFrame() { return m_MainFrame; }
+	void addElement(unsigned int index, ListElement* element);
+	void moveElement(unsigned int from, unsigned int to);
 
-	void onRender(wxWindow* mainFrame);
+	void onRender(wxPanel* mainFrame);
 	void onUpdate(wxWindow* mainFrame);
+
+	wxString getTitle() { return m_Title; }
+	unsigned int getLength() { return m_Length; }
+
+	ListElement* at(unsigned int index) { return m_ElementMap.at(index); }
 private:
-	wxWindow* m_MainFrame;
-	wxWindow* m_ListPanel;
-	wxBoxSizer* m_ListSizer;
 	wxString m_Title;
-	std::vector<ListElement*> m_Elements;
+	unsigned int m_Length;
+	std::unordered_map<unsigned int, ListElement*> m_ElementMap;
+	ListManager* m_ListManager;
 };

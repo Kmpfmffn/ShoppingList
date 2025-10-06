@@ -19,8 +19,6 @@ public:
 
 	List* getList() { return m_List; }
 private:
-	wxPanel* m_ListPanel;
-	wxBoxSizer* m_ListSizer;
 	ListManager* m_ListManager;
 	List* m_List;
 };
