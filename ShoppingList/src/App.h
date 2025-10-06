@@ -1,6 +1,6 @@
 #pragma once
-#include "Config.h"
 #include "Logger.h"
+#include "Config.h"
 
 #include "MainFrame.h"
 

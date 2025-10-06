@@ -9,27 +9,32 @@ ListElement::ListElement(ListManager* listManager, wxString title, bool done, wx
 {
 }
 
-
+// Check element done or undone
 void ListElement::onCheckboxClicked(wxCommandEvent& evt){
 	bool done = m_DoneBox->GetValue();
 	m_Done = done;
-	log("Checkbox checked [Index:" + std::to_string(m_Index) + " Title:" + (std::string)m_Title + "]");
+	//log("Checkbox checked [Index:" + std::to_string(m_Index) + " Title:" + (std::string)m_Title + "]", logLevel::TRACE);
 }
 
+// Delete element from list
 void ListElement::onButtonDelClicked(wxCommandEvent& evt) {
-	log("Button del clicked [Index:" + std::to_string(m_Index) + " Title:" + (std::string)m_Title + "]");
+	//log("Button del clicked [Index:" + std::to_string(m_Index) + " Title:" + (std::string)m_Title + "]", logLevel::TRACE);
+	m_ListManager->getList()->delElement(m_Index);
+	m_ListManager->update();
 }
 
+// Move element up in list
 void ListElement::onButtonUpClicked(wxCommandEvent& evt){
-	log("Button up clicked [Index:" + std::to_string(m_Index) + " Title:" + (std::string)m_Title + "]");
+	//log("Button up clicked [Index:" + std::to_string(m_Index) + " Title:" + (std::string)m_Title + "]", logLevel::TRACE);
 	if (m_Index > 0) {
 		m_ListManager->getList()->moveElement(m_Index, m_Index - 1);
 		m_ListManager->update();
 	}
 }
 
+// Move element down in list
 void ListElement::onButtonDownClicked(wxCommandEvent& evt){
-	log("Button down clicked [Index:" + std::to_string(m_Index) + " Title:" + (std::string)m_Title + "]");
+	//log("Button down clicked [Index:" + std::to_string(m_Index) + " Title:" + (std::string)m_Title + "]", logLevel::TRACE);
 	if (m_Index < m_ListManager->getList()->getLength()) {
 		m_ListManager->getList()->moveElement(m_Index, m_Index + 1);
 		m_ListManager->update();

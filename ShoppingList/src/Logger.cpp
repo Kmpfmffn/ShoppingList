@@ -3,28 +3,6 @@
 #include <sstream>
 
 
-void setLogLevel(logLevel level) {
-	
-	/*#if level == logLevel::TRACE
-		#define LOG_LEVEL logLevel::TRACE
-	#elif level == logLevel::INFO
-		#define LOG_LEVEL logLevel::INFO;
-	#endif
-
-	switch (level) {
-	case logLevel::TRACE: 
-		#define LOG_LEVEL logLevel::TRACE;
-	case logLevel::INFO:
-		#define LOG_LEVEL logLevel::INFO;
-	case logLevel::WARN:
-		#define LOG_LEVEL logLevel::WARN;
-	case logLevel::ERR:
-		#define LOG_LEVEL logLevel::ERR;
-	case logLevel::FATAL:
-		#define LOG_LEVEL logLevel::FATAL;
-	}*/
-}
-
 void initLogger() {
 	// clear log file
 	std::ofstream logFile;

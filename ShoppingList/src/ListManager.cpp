@@ -28,6 +28,9 @@ void ListManager::update() {
 }
 
 
+/*
+	Load list from file at 'path'
+*/
 void ListManager::loadList(wxString path) {
 	std::string filepath = path.ToStdString();
 	// if save file doesn't exist
@@ -71,11 +74,14 @@ void ListManager::loadList(wxString path) {
 			index++;
 		}
 		iStream.close();
-		log("Loaded '" + listTitle + "' from '" + filepath + "'");
+		log("Loaded '" + listTitle + "' from '" + filepath + "'", logLevel::INFO);
 	}
 }
 
 
+/*
+	Save list to file at 'path'
+*/
 void ListManager::saveList(wxString path) {
 	std::string filepath = path.ToStdString();
 	std::ofstream oStream;
@@ -93,12 +99,5 @@ void ListManager::saveList(wxString path) {
 		oStream << list->at(i)->getSaveString() << std::endl;
 	}
 	oStream.close();
-	log("List '" + m_List->getTitle().ToStdString() + "' saved to '" + filepath);
+	log("Saved  '" + m_List->getTitle().ToStdString() + "' to   '" + filepath, logLevel::INFO);
 }
-
-
-
-/*
-	Check why it crashes on second button click
-	and why the sizer doesnt size properly
-*/

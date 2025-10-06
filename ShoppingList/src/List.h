@@ -15,6 +15,7 @@ public:
 	
 	void addElement(unsigned int index, ListElement* element);
 	void moveElement(unsigned int from, unsigned int to);
+	void delElement(unsigned int index);
 
 	void onRender(wxPanel* mainFrame);
 	void onUpdate(wxWindow* mainFrame);
