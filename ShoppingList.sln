@@ -1,15 +1,22 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
+<<<<<<< HEAD
 VisualStudioVersion = 17.14.36414.22 d17.14
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ShoppingList", "ShoppingList\ShoppingList.vcxproj", "{89E4B413-7547-44B8-1ECD-7C6E0A0F103B}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Learn wxWidgets", "Learn wxWidgets\Learn wxWidgets.vcxproj", "{8E66498C-2DFB-4C47-8EE6-02FD922956C8}"
+=======
+VisualStudioVersion = 17.14.36301.6 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ShoppingList", "ShoppingList\ShoppingList.vcxproj", "{7FBFD023-C502-4308-B150-3927A51D5E08}"
+>>>>>>> 9590305f19b9c324c767fb816c7831129350de5f
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
+<<<<<<< HEAD
 		Dist|x64 = Dist|x64
 		Release|x64 = Release|x64
 	EndGlobalSection
@@ -26,11 +33,30 @@ Global
 		{8E66498C-2DFB-4C47-8EE6-02FD922956C8}.Dist|x64.Build.0 = Release|x64
 		{8E66498C-2DFB-4C47-8EE6-02FD922956C8}.Release|x64.ActiveCfg = Release|x64
 		{8E66498C-2DFB-4C47-8EE6-02FD922956C8}.Release|x64.Build.0 = Release|x64
+=======
+		Debug|x86 = Debug|x86
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7FBFD023-C502-4308-B150-3927A51D5E08}.Debug|x64.ActiveCfg = Debug|x64
+		{7FBFD023-C502-4308-B150-3927A51D5E08}.Debug|x64.Build.0 = Debug|x64
+		{7FBFD023-C502-4308-B150-3927A51D5E08}.Debug|x86.ActiveCfg = Debug|Win32
+		{7FBFD023-C502-4308-B150-3927A51D5E08}.Debug|x86.Build.0 = Debug|Win32
+		{7FBFD023-C502-4308-B150-3927A51D5E08}.Release|x64.ActiveCfg = Release|x64
+		{7FBFD023-C502-4308-B150-3927A51D5E08}.Release|x64.Build.0 = Release|x64
+		{7FBFD023-C502-4308-B150-3927A51D5E08}.Release|x86.ActiveCfg = Release|Win32
+		{7FBFD023-C502-4308-B150-3927A51D5E08}.Release|x86.Build.0 = Release|Win32
+>>>>>>> 9590305f19b9c324c767fb816c7831129350de5f
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
+<<<<<<< HEAD
 		SolutionGuid = {5FA03C98-F742-4472-B042-D89BA312CA6C}
+=======
+		SolutionGuid = {EA40215C-39DC-4D09-80A7-FB1825A6014C}
+>>>>>>> 9590305f19b9c324c767fb816c7831129350de5f
 	EndGlobalSection
 EndGlobal

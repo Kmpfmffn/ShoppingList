@@ -1,6 +1,10 @@
 ###############################################################################
 # Set default behavior to automatically normalize line endings.
+<<<<<<< HEAD
 * text=auto
+=======
+
+>>>>>>> 9590305f19b9c324c767fb816c7831129350de5f
 # Set default behavior for command prompt diff.
 #
 # This is need for earlier builds of msysgit that does not have it on by

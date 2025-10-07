@@ -360,6 +360,10 @@ MigrationBackup/
 .ionide/
 
 # Fody - auto-generated XML schema
+<<<<<<< HEAD
 FodyWeavers.xsd
 /Learn wxWidgets
 /bin-int/Debug-windows-x86_64/ShoppingList
+=======
+FodyWeavers.xsd
+>>>>>>> 9590305f19b9c324c767fb816c7831129350de5f
