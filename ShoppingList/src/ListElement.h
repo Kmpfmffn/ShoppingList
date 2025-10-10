@@ -19,7 +19,7 @@ public:
 	void onButtonUpClicked(wxCommandEvent& evt);
 	void onButtonDownClicked(wxCommandEvent& evt);
 
-	void onRender(wxWindow* parent, wxBoxSizer* listSizer);
+	void onRender(wxPanel* listManage, wxBoxSizer* listSizer);
 
 	std::string getSaveString();
 private:

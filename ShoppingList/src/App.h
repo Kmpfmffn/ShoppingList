@@ -1,8 +1,9 @@
 #pragma once
+#include "MainFrame.h"
+
 #include "Logger.h"
 #include "Config.h"
 
-#include "MainFrame.h"
 
 class App : public wxApp {
 public:

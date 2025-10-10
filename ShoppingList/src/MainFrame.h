@@ -2,6 +2,7 @@
 
 #include <wx/wx.h>
 
+#include "ListControl.h"
 #include "ListManager.h"
 #include "List.h"
 #include "ListElement.h"
@@ -19,6 +20,7 @@ public:
 
 	List* getList() { return m_List; }
 private:
+	ListControl* m_ListControl;
 	ListManager* m_ListManager;
 	List* m_List;
 };

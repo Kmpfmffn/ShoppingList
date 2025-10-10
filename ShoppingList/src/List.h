@@ -17,6 +17,8 @@ public:
 	void moveElement(unsigned int from, unsigned int to);
 	void delElement(unsigned int index);
 
+	void onButtonAddElementClicked(wxCommandEvent& evt);
+
 	void onRender(wxPanel* mainFrame);
 	void onUpdate(wxWindow* mainFrame);
 

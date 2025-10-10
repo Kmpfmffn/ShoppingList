@@ -2,8 +2,8 @@
 
 #include "Logger.h"
 
-ListManager::ListManager(wxFrame* parent) : wxPanel(parent, wxID_ANY, wxDefaultPosition, wxSize(WIN_WIDTH, WIN_HEIGHT)),
-	m_MainFrame(parent), m_List(nullptr)
+ListManager::ListManager(wxFrame* parent) : wxPanel(parent, wxID_ANY, wxDefaultPosition),
+	m_MainFrame(parent), m_ListControl(new ListControl(parent)), m_List(nullptr)
 {
 }
 
@@ -15,8 +15,6 @@ void ListManager::render() {
 	m_MainFrame->SetSizer(m_Sizer);
 	this->Layout();
 	m_MainFrame->Layout();
-	//this->Fit();
-	//m_MainFrame->Fit();
 }
 
 void ListManager::update() {

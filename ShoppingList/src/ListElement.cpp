@@ -13,6 +13,7 @@ ListElement::ListElement(ListManager* listManager, wxString title, bool done, wx
 void ListElement::onCheckboxClicked(wxCommandEvent& evt){
 	bool done = m_DoneBox->GetValue();
 	m_Done = done;
+	m_ListManager->update();
 	//log("Checkbox checked [Index:" + std::to_string(m_Index) + " Title:" + (std::string)m_Title + "]", logLevel::TRACE);
 }
 
@@ -43,8 +44,9 @@ void ListElement::onButtonDownClicked(wxCommandEvent& evt){
 
 
 
-void ListElement::onRender(wxWindow* mainFrame, wxBoxSizer* listSizer) {
-	wxPanel* elementPanel = new wxPanel(mainFrame, wxID_ANY);
+void ListElement::onRender(wxPanel* listManager, wxBoxSizer* listSizer) {
+	wxPanel* elementPanel = new wxPanel(listManager, wxID_ANY);
+	elementPanel->SetFont(elementPanel->GetFont().Scale(1.1f));
 
 	// Done box
 	m_DoneBox = new wxCheckBox(elementPanel, wxID_ANY, "", wxDefaultPosition, wxSize(15, 15), wxALIGN_RIGHT);
@@ -55,14 +57,15 @@ void ListElement::onRender(wxWindow* mainFrame, wxBoxSizer* listSizer) {
 	wxStaticText* titleText = new wxStaticText(elementPanel, wxID_ANY, m_Title, wxDefaultPosition, wxSize(100, -1));
 
 	// Delete button
-	m_DelButton = new wxButton(elementPanel, wxID_ANY, "X", wxDefaultPosition, wxSize(25, 25));
+	m_DelButton = new wxButton(elementPanel, wxID_ANY, wxUniChar(0x1F5D1)/*trash bin*/, wxDefaultPosition, wxSize(25, 25));
+	m_DelButton->SetFont(m_DelButton->GetFont().Scale(1.2f));
 	m_DelButton->Bind(wxEVT_BUTTON, &ListElement::onButtonDelClicked, this);
 
 	// Move buttons
 	wxPanel* moverPanel = new wxPanel(elementPanel, wxID_ANY);
 	wxBoxSizer* moveSizer = new wxBoxSizer(wxVERTICAL);
-	m_UpButton   = new wxButton(moverPanel, wxID_ANY, "/\\", wxDefaultPosition, wxSize(20, 15));
-	m_DownButton = new wxButton(moverPanel, wxID_ANY, "\\/", wxDefaultPosition, wxSize(20, 15));
+	m_UpButton   = new wxButton(moverPanel, wxID_ANY, wxUniChar(0x1F881)/*arrow up*/, wxDefaultPosition, wxSize(20, 15));
+	m_DownButton = new wxButton(moverPanel, wxID_ANY, wxUniChar(0x1F883)/*arrow down*/, wxDefaultPosition, wxSize(20, 15));
 	m_UpButton->Bind(wxEVT_BUTTON, &ListElement::onButtonUpClicked, this);
 	m_DownButton->Bind(wxEVT_BUTTON, &ListElement::onButtonDownClicked, this);
 	moveSizer->Add(m_UpButton);

@@ -4,6 +4,11 @@
 #include "Logger.h"
 
 
+
+#include <wx/textdlg.h> 
+
+
+
 List::List(wxPanel* listManager, wxString title) : wxPanel(listManager, wxID_ANY),
 	m_ListManager((ListManager*)listManager), m_Title(title), m_Length(0)
 {
@@ -53,12 +58,27 @@ void List::delElement(unsigned int index) {
 	log("Deleted element '" + title + "' from list at index " + std::to_string(index), logLevel::TRACE);
 }
 
+void List::onButtonAddElementClicked(wxCommandEvent& evt) {
+	wxString elementName = wxGetTextFromUser("", "Add new element", "New Element");
+	log(elementName.ToStdString());
+	addElement(m_Length, new ListElement(m_ListManager, elementName, false, "-", m_Length));
+	m_ListManager->update();
+}
+
 
 /*
 	Render the list to wxPanel ListManager
 */
 void List::onRender(wxPanel* parent) {
 	wxBoxSizer* listSizer = new wxBoxSizer(wxVERTICAL);
+
+	/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	// Render the 'add' button here (and maybe the list controls)
+	wxButton* button = new wxButton(m_ListManager->getHandle(), wxID_ANY, "ADD List Element", wxDefaultPosition, wxSize(25, 25));
+	listSizer->Add(button, wxSizerFlags().Expand());
+	button->Bind(wxEVT_BUTTON, &List::onButtonAddElementClicked, this);
+	
+	// Render all elements in the list
 	ListElement* element = nullptr;
 	for (unsigned int i = 0; i < m_Length; i++) {
 		element = m_ElementMap[i];

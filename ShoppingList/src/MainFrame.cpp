@@ -3,9 +3,11 @@
 #include "Logger.h"
 
 
-MainFrame::MainFrame(const wxString& title) : wxFrame(nullptr, wxID_ANY, title) {
+MainFrame::MainFrame(const wxString& title) : wxFrame(nullptr, wxID_ANY, title, wxDefaultPosition, wxSize(WIN_WIDTH, WIN_HEIGHT)) {
 	log("Initializing MainFrame...");
 	SetSize(wxSize(WIN_WIDTH, WIN_HEIGHT));
+	m_ListControl = new ListControl(this);
+	//m_ListControl->render();
 	m_ListManager = new ListManager(this);
 	m_ListManager->loadList("List.mfn");
 	m_ListManager->render();
