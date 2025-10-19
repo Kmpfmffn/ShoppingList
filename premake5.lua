@@ -1,7 +1,15 @@
+-- cfg. = configuration
+-- .buildcfg = configuration(Debug, Release, Dist,...)
+-- .system = system(Windows,...)
+-- .architecture = architecture(x86, x86_64,...)
+
+-- prj. = project
+-- .name
 
 
-workspace "ShoppingList"
-    architecture "x64"
+
+workspace "ShoppingList"  -- solution dir
+    architecture "x86_64"  --  architecture(x86, x86_64,...)
 
     configurations 
     {
@@ -12,59 +20,59 @@ workspace "ShoppingList"
 
 outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
-project "ShoppingList"
-    location "ShoppingList"
-    kind "ConsoleApp"
+project "ShoppingList" --  project name
+    location "ShoppingList" --  project dir
+    kind "WindowedApp" --  project kind(ConsoleApp, WindowedApp, SharedLib, StaticLib,...)
     language "C++"
 
-    targetdir ("bin/" .. outputdir .. "/%{prj.name}")
-    objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
+    targetdir ("bins/bin/" .. outputdir .. "/%{prj.name}")   --  bin directory
+    objdir ("bins/bin-int/" .. outputdir .. "/%{prj.name}")  --  bin-int directory
 
-    files
+    files  -- files to include
     {
         "%{prj.name}/src/**.h",
-        "%{prj.name}/src/**.cpp"
+        "%{prj.name}/src/**.cpp",
+        "%{prj.name}/resource.h",
+        "%{prj.name}/Resource.rc",
+        "%{prj.name}/res/icons/*"
     }
 
-    includedirs
+    includedirs  -- (C++/General/"Additional Include Directories")
     {
         "%{prj.name}/src",
         "%{prj.name}/vendor",
-        -- "Dependencies/glew-2.1.0/include",
-        -- "Dependencies/GLFW/include",
-        -- "Dependencies/glad/include"
+        "Dependencies/wxWidgets/include",
+        "Dependencies/wxWIdgets/include/msvc"
     }
 
-    libdirs
+    libdirs  -- .lib directories (Linker/General/"Additional Library Directories")
     {
-        -- "Dependencies/glew-2.1.0/lib/Release/x64",
-        -- "Dependencies/GLFW/lib-vc2022"
+        "Dependencies/wxWidgets/lib/vc_x64_lib"
     }
 
-    links
+    links  -- .lib's in .lib directory (Linker/Input/"Additional Dependencies")
     {
-        -- "glew32s.lib",
-        -- "glfw3.lib",
-        -- "opengl32.lib"
     }
 
-    -- defines "GLEW_STATIC"
+    resincludedirs  -- resource directory (Resources/General/Additional Include Directories)
+    {
+        "%{prj.name}/res"
+    }
 
     filter "system:windows"
         cppdialect "C++20"
-        staticruntime "On"
+        staticruntime "Off" --  Runtime Library (C++/Code Generation/Runtime Library) (On=MultiThreaded, Off=MultiThreadedDLL)
         systemversion "latest"
-
         buildoptions "/utf-8"
 
     filter "configurations:Debug"
-        defines "GM_DEBUG"
+        defines "IS_DEBUG"
         symbols "On"
     
     filter "configurations:Release"
-        defines "GM_RELEASE"
+        defines "IS_RELEASE"
         optimize "On"
 
     filter "configurations:Dist"
-        defines "GM_DIST"
+        defines "IS_DIST"
         optimize "On"

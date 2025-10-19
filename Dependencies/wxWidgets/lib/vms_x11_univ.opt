@@ -1,16 +1,3 @@
-wx_root:[wxwidgets.lib]libwx_x11_univ.olb/lib
-sys$library:libpcre2/lib
-sys$library:libcairo.olb/lib
-sys$library:libpixman.olb/lib
-sys$library:libjpeg.olb/lib
-sys$library:libpng.olb/lib
-sys$library:libz.olb/lib
-sys$share:tiff$shr/share
-sys$library:expat.olb/lib
-X11:libxpm.olb/lib
-sys$share:freetype2shr/share
-sys$share:libfontconfig/share
-sys$share:pthread$rtl.exe/share
-sys$share:libXrender.exe/share
-sys$library:decw$xextlibshr.exe/share
-sys$library:decw$xlibshr.exe/share
+version https://git-lfs.github.com/spec/v1
+oid sha256:9868df0b3ddc8dfbb25f2f2729a057dc1bcba117a6e91e63b47b3562af084756
+size 475

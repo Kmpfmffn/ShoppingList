@@ -15,6 +15,8 @@ void ListManager::render() {
 	m_MainFrame->SetSizer(m_Sizer);
 	this->Layout();
 	m_MainFrame->Layout();
+	//this->Fit();
+	//m_MainFrame->Fit();
 }
 
 void ListManager::update() {
